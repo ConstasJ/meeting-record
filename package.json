@@ -2,9 +2,11 @@
   "name": "meeting-record",
   "version": "1.0.0",
   "description": "A koishi(https://github.com/koishijs/koishi) plugin to record specialized chat messages(Mainly to record meetings).",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build:live",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts --exec 'ts-node' src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,8 @@
   "devDependencies": {
     "@types/node": "^16.10.9",
     "koishi": "^3.14.2",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
   }
 }
