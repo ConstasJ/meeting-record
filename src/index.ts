@@ -19,6 +19,10 @@ let dbUpdate=async (ctx:Context)=>{
     channels=await ctx.database.getAssignedChannels(['id','isMeeting'])
 }
 
+function record(session:Session){
+
+}
+
 export const name='meeting-record'
 
 export let apply=(ctx:Context) =>{
@@ -31,7 +35,14 @@ export let apply=(ctx:Context) =>{
             let {isMeeting} = await ctx.database.getChannel(session.bot.platform,session.channelId)
             isMeeting=1
             dbUpdate(ctx)
-            ctx
+            ctx.on('message',record)
+            return '开始记录！'
         }
         )
+        .subcommand('stop')
+            .action(async ({session})=>{
+                let {isMeeting} = await ctx.database.getChannel(session.bot.platform,session.channelId)
+                isMeeting=0
+            }
+            )
 }
