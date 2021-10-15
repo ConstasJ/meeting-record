@@ -15,7 +15,7 @@ Database.extend("koishi-plugin-mysql",({tables})=>{
 
 let channels=null
 
-export let dbUpdate=async (ctx:Context)=>{
+let dbUpdate=async (ctx:Context)=>{
     channels=await ctx.database.getAssignedChannels(['id','isMeeting'])
 }
 
@@ -31,6 +31,7 @@ export let apply=(ctx:Context) =>{
             let {isMeeting} = await ctx.database.getChannel(session.bot.platform,session.channelId)
             isMeeting=1
             dbUpdate(ctx)
+            ctx
         }
         )
 }
