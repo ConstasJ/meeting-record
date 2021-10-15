@@ -1,4 +1,18 @@
-import {Context,Session} from 'koishi-core'
+import {Context,Session,Database,Channel,Tables} from 'koishi-core'
+import {} from 'koishi-plugin-mysql'
+
+declare module 'koishi-core'{
+    interface Channel{
+        isMeeting:number
+    }
+}
+
+Channel.extend(()=>({isMeeting:0}))
+Database.extend("koishi-plugin-mysql",({tables})=>{
+    tables.channel.isMeeting='tinyint'
+}
+)
+
 
 export const name='meeting-record'
 
