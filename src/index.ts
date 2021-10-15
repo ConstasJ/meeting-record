@@ -8,7 +8,7 @@ export let apply=(ctx:Context) =>{
         .option('subcon','-sc 添加会议部分总结')
         .option('conclusion','-c 添加会议总结')
         .action(({session,options})=>{
-            
+            let id=session?.channel
         }
         )
 }
