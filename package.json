@@ -1,5 +1,5 @@
 {
-  "name": "meeting-record",
+  "name": "koishi-plugin-meeting-record",
   "version": "1.0.0",
   "description": "A koishi(https://github.com/koishijs/koishi) plugin to record specialized chat messages(Mainly to record meetings).",
   "main": "lib/index.js",
